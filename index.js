@@ -122,13 +122,13 @@ const getDonoPorCodigo = (request, response) => {
 
 // Pets nome, raca, porte, dono
 const getPets = (request, response) => {
-    pool.query(`select s.codigo as codigo, s.nome as nome, 
-    s.raca as raca, 
-    s.porte as porte,
+    pool.query(`select p.codigo as codigo, p.nome as nome, 
+    p.raca as raca, 
+    p.porte as porte,
     p.dono as nomedono
-    from pets s
-    join donos p on s.dono = p.codigo
-    order by s.codigo`,
+    from pets p
+    join donos d on p.dono = d.codigo
+    order by p.codigo`,
         (error, results) => {
             if (error) {
                 return response.status(400).json(
