@@ -46,7 +46,7 @@ const addDono = (request, response) => {
             }
             response.status(200).json(
                 {
-                    status: 'success', message: 'Prédio criado',
+                    status: 'success', message: 'Dono criado',
                     objeto: results.rows[0]
                 }
             );
@@ -82,7 +82,7 @@ const updateDono = (request, response) => {
 
 const deleteDono = (request, response) => {
     const codigo = parseInt(request.params.codigo);
-    pool.query(`DELETE FROM DONOS where codigo = $1`,
+    pool.query(`DELETE FROM donos where codigo = $1`,
         [codigo],
         (error, results) => {
             if (error || results.rowCount == 0) {
@@ -104,7 +104,7 @@ const deleteDono = (request, response) => {
 
 const getDonoPorCodigo = (request, response) => {
     const codigo = parseInt(request.params.codigo);
-    pool.query(`SELECT * FROM DONOS where codigo = $1`,
+    pool.query(`SELECT * FROM donos where codigo = $1`,
         [codigo],
         (error, results) => {
             if (error || results.rowCount == 0) {
