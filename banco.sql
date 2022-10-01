@@ -47,5 +47,5 @@ create table pets (
 -- values (511, 'Laboratório', 12, 1);
 
 insert into pets (nome, raca, porte, dono) 
-values ("Tobias", 'Caramelo', "Pequeno", 1)
+values ('Tobias', 'Caramelo', 'Pequeno', 1)
 returning codigo, nome, raca, porte, dono;
